@@ -11,10 +11,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/acloudyh/springCloud-config.git #github上仓库地址
+          uri: https://github.com/nicai20098/idea-demo.git #github上仓库地址
           search-paths:
             # 搜索目录
-            - springcoud-config
+            - idea-demo
       #读取分支
       label: master
 
@@ -22,7 +22,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka #集群
 
 #3366 需要.
 # rabbitmq 相关配置,暴露bus刷新配置的断点
