@@ -29,11 +29,10 @@ public class OrderHystrixController {
         return result;
     }
 
-//    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-//    public String paymentInfo_TimeOut(@PathVariable("id") Integer id){
-//        String result = paymentHystrixService.paymentInfo_TimeOut(id);
-//        return result;
-//    }
+    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
+    public String paymentInfo_TimeOut(@PathVariable("id") Integer id){
+        return paymentHystrixService.paymentInfo_TimeOut(id);
+    }
 
     /**
      * 每一个方法都需要配置降级方法??? 代码冗余.需要一个通用的
@@ -41,16 +40,16 @@ public class OrderHystrixController {
      * @param id
      * @return
      */
-    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
+//    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
 //    @HystrixCommand(fallbackMethod = "PaymentTimeOutFallbackMethod", commandProperties = {
 //            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
 //    })
-    @HystrixCommand //参考全局降级方法注释,payment_Global_FallbackMethod
-    public String paymentInfo_TimeOut(@PathVariable("id") Integer id) {
-        int age = 10 / 0;
-        String result = paymentHystrixService.paymentInfo_TimeOut(id);
-        return result;
-    }
+//    @HystrixCommand //参考全局降级方法注释,payment_Global_FallbackMethod
+//    public String paymentInfo_TimeOut(@PathVariable("id") Integer id) {
+//        int age = 10 / 0;
+//        String result = paymentHystrixService.paymentInfo_TimeOut(id);
+//        return result;
+//    }
 
     public String PaymentTimeOutFallbackMethod(@PathVariable("id") Integer id) {
         return "我是消费者80，对方支付系统繁忙请10秒钟后再试或者自己运行出错请检查自己，o(╥﹏╥)o";

@@ -11,5 +11,8 @@ eureka:
     fetch-registry: true    #是否从服务端抓取已有的注册信息
     service-url:
       #      defaultZone: http://eureka7001.com:7001/eureka
-      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
 
+logging:
+  level:
+    com.george.springcloud.service: debug
